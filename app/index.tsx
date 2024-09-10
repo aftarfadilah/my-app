@@ -1,7 +1,30 @@
 import { useState } from "react";
-import { Button, Text, View } from "react-native";
+import { StyleSheet, Button, Text, View } from "react-native";
+import { useRouter } from "expo-router";
+
+const styles = StyleSheet.create({
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    paddingVertical: 16,
+  },
+  container: {
+    marginBottom: 14,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  buttonRow: {
+    flexDirection: "row",
+    marginTop: 14,
+    justifyContent: "space-between",
+    width: "80%",
+  },
+});
 
 export default function Index() {
+  const router = useRouter();
+
   const calculateScore = (score: number) => {
     let predicate: string = "";
     if(score > 85) predicate = "Sangat Baik"
@@ -27,13 +50,7 @@ export default function Index() {
   const [myColors, setMyColors] = useState([255, 0, 0])
 
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
       <Text
         style={{
           color: "red",
@@ -87,6 +104,13 @@ export default function Index() {
         />
       </View>
       <Text>{myColors[0]}, {myColors[1]}, {myColors[2]}</Text>
-    </View>
+      <Button title="Go to About" onPress={() => router.push("/about")} />
+      <Button title="Go to Product" onPress={() => router.push("/product")} />
+
+      <Button title="Go to Food" onPress={() => router.push("/food")} />
+      <Button title="Go to Movie" onPress={() => router.push("/movie")} />
+      <Button title="Go to User Post Screen" onPress={() => router.push("/userpost")} />
+    </ScrollView>
+
   );
 }
