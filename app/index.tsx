@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { StyleSheet, Button, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Button, Text, View } from "react-native";
 import { useRouter } from "expo-router";
 
 const styles = StyleSheet.create({
