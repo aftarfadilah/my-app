@@ -1,4 +1,4 @@
-import { Button, Chip, LinearProgress, Text } from "@rneui/themed";
+import { Button, Chip, Image, LinearProgress, Text } from "@rneui/themed";
 import React, {Component} from "react";
 import { StyleSheet, View } from "react-native";
 import Question from "./question" ;
@@ -28,10 +28,10 @@ class Quiz extends Component {
             }
         }, 1000),   
         quiz : [
-            new Question('Not a member of Avenger ', 'Ironman','Spiderman', 'Thor', 'Hulk Hogan', 'Hulk Hogan'),
-            new Question("Not a member of Teletubbies", 'Dipsy','Patrick', 'Laalaa', 'Poo', 'Patrick'),
-            new Question("Not a member of Justice League", 'Batman', 'Aquades', 'Superman', 'Flash', 'Aquades'),
-            new Question("Not a member of BTS", 'Jungkook','Jimin', 'Gong Yoo', 'Suga', 'Gong Yoo'),
+            new Question('Not a member of Avenger ', 'https://upload.wikimedia.org/wikipedia/id/0/0d/Avengers_Endgame_poster.jpg', 'Ironman','Spiderman', 'Thor', 'Hulk Hogan', 'Hulk Hogan'),
+            new Question("Not a member of Teletubbies", 'https://m.media-amazon.com/images/M/MV5BNzk4Mjc5ZjItNTQ4Mi00ZDc4LWJjNDEtZGY1NWFlYjQ5OTE2XkEyXkFqcGdeQXVyNzA5NTYxMDg@._V1_.jpg', 'Dipsy','Patrick', 'Laalaa', 'Poo', 'Patrick'),
+            new Question("Not a member of Justice League", 'https://m.media-amazon.com/images/M/MV5BMjM5YmQxM2YtZjI2Yy00YjhhLTg5N2MtMTEyMzdlZDU3OTVhXkEyXkFqcGc@._V1_.jpg', 'Batman', 'Aquades', 'Superman', 'Flash', 'Aquades'),
+            new Question("Not a member of BTS", 'https://i.pinimg.com/originals/4d/9e/93/4d9e933b450fb347ae05848d2b5e56f9.jpg', 'Jungkook','Jimin', 'Gong Yoo', 'Suga', 'Gong Yoo'),
         ],
         nomor:0,
         skor:0,
@@ -90,7 +90,7 @@ class Quiz extends Component {
               flexDirection: "row",
               marginVertical: 12,
             },
-            imgkucing: {
+            img: {
               width: 300,
               height: 400,
               marginHorizontal: 6,
@@ -115,29 +115,29 @@ class Quiz extends Component {
         {
             return (
                 <View>
-                <LinearProgress animation={false} value={1-(this.state.count/this.batas)}
-                color="primary" />
-                <Text>{this.toHHMMSS(this.state.count)}</Text> 
-                <Text h3>{this.state.nomor + 1}. {this.state.quiz[this.state.nomor].question}</Text>
-                <View style={styles.vparent}>
-                <Button
-                    onPress={() =>{this.checkAnswer(this.state.quiz[this.state.nomor].option_a)}}
-                    title={"A. "+this.state.quiz[this.state.nomor].option_a} type="outline" 
-                />
-                <Button
-                    onPress={() =>{this.checkAnswer(this.state.quiz[this.state.nomor].option_b)}}
-                    title={"B. "+this.state.quiz[this.state.nomor].option_b} type="outline"
-                />
-                <Button
-                    onPress={()=>{this.checkAnswer(this.state.quiz[this.state.nomor].option_c)}}
-                    title={"C. "+this.state.quiz[this.state.nomor].option_c} type="outline" 
-                />
-                <Button
-                    onPress={() =>{this.checkAnswer(this.state.quiz[this.state.nomor].option_d)}}
-                    title={"D. "+this.state.quiz[this.state.nomor].option_d} type="outline"
-                />
-                
-                </View>
+                    <LinearProgress animation={false} value={1-(this.state.count/this.batas)}
+                    color="primary" />
+                    <Text>{this.toHHMMSS(this.state.count)}</Text> 
+                    <Text h3>{this.state.nomor + 1}. {this.state.quiz[this.state.nomor].question}</Text>
+                    <Image source={{uri: this.state.quiz[this.state.nomor].url_gambar}} style={styles.img} />
+                    <View style={styles.vparent}>
+                        <Button
+                            onPress={() =>{this.checkAnswer(this.state.quiz[this.state.nomor].option_a)}}
+                            title={"A. "+this.state.quiz[this.state.nomor].option_a} type="outline" 
+                        />
+                        <Button
+                            onPress={() =>{this.checkAnswer(this.state.quiz[this.state.nomor].option_b)}}
+                            title={"B. "+this.state.quiz[this.state.nomor].option_b} type="outline"
+                        />
+                        <Button
+                            onPress={()=>{this.checkAnswer(this.state.quiz[this.state.nomor].option_c)}}
+                            title={"C. "+this.state.quiz[this.state.nomor].option_c} type="outline" 
+                        />
+                        <Button
+                            onPress={() =>{this.checkAnswer(this.state.quiz[this.state.nomor].option_d)}}
+                            title={"D. "+this.state.quiz[this.state.nomor].option_d} type="outline"
+                        />
+                    </View>
                 
                 </View>
                 
