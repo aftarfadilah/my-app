@@ -108,6 +108,15 @@ export default function Index() {
         <Button title="Go to Product" onPress={() => router.push("/product")} />
         <Button title="Add Product" onPress={() => router.push("/add-product")} />
 
+        <Button
+          title="Go to Books"
+          onPress={() => router.push("/books")}
+        />
+        <Button
+          title="Go to Add Book"
+          onPress={() => router.push("/addbook")}
+        />
+
         <Button title="Go to Food" onPress={() => router.push("/food")} />
         <Button title="Go to Movie" onPress={() => router.push("/movie")} />
         <Button title="Go to User Post Screen" onPress={() => router.push("/userpost")} />
